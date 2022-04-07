@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>web</title>
+    <link rel="stylesheet" href="../static/css/public.css" media="all">
+    <link rel="stylesheet" href="../static/lib/layui-v2.6.3/css/layui.css">
+    <link rel="stylesheet" href="../static/web_use.css">
+    <style>
+
+    </style>
+</head>
+<body>
+<div class="layuimini-container" style="height: 1080px; background-color: #11112D">
+    <div class="layui-col-md9 img">
+        <button  class="layui-btn layui-btn-normal" id="refresh" style="margin-top: 20px;margin-left: 40px;">重新开始</button>
+        <img id="image" src="{{ url_for('video_feed', feed_type='Camera_0') }}">
+    </div>
+    <div class="layui-col-md3 content">
+        <div class="layui-form-item">
+            <label class="layui-form-label">交通状况</label>
+            <div class="layui-input-block">
+                <input class="layui-input data road" type="text" readonly>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">车辆总数</label>
+            <div class="layui-input-block">
+                <input class="layui-input data car_num" type="text" readonly>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">行人数量</label>
+            <div class="layui-input-block">
+                <input class="layui-input data people" type="text" readonly>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">车辆数量</label>
+            <div class="layui-input-block">
+                <input class="layui-input data car" type="text" readonly>
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">来往车辆ID和类型统计</label>
+            <div class="layui-input-block">
+                <textarea id="census" class="layui-textarea">
+                </textarea>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="../static/lib/layui-v2.6.3/layui.js"></script>
+<script src="../static/js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+<script>
+    layui.use(['form'], function () {
+        setInterval("load()",2000);
+        let btn = document.querySelector('#refresh');
+        btn.addEventListener('click', function (){
+            window.location.replace('./web_use1.html');
+        })
+    });
+    function load() {
+        var $ = layui.jquery;
+        $.ajax({
+            url: "./json_dict.json",
+            type: "GET",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                let car_num = document.querySelector('.car_num');
+                let road = document.querySelector('.road');
+                car_num.value = data.len_list;
+                road.value = data.style;
+            }
+        });
+        $.ajax({
+            url: "./json_dict_sum.json",
+            type: "GET",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                let car = document.querySelector('.car');
+                let people = document.querySelector('.people');
+                car.value = data.Sum_vehicle;
+                people.value = data.Sum_person;
+            }
+        });
+        $.ajax({
+            url: "./json_dict_label.json",
+            type: "GET",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                for (var i = 0 ; i < data.length; i++){
+                    let show = document.querySelector('#census');
+                    if (i === 0) {
+                        show.value = "目标id:" + data[i].id + "目标类型:" + data[i].label;
+                    }
+                    show.value = show.value + "\n" + "目标id:" + data[i].id + "目标类型:" + data[i].label;
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

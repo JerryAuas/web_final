@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style type="text/css">
+    img{
+        width: 100px;
+        height: 100px;
+        margin-left: 10px;
+    }
+</style>
+<p>车辆撞线图</p>
+<div></div>
+<script>
+    div = document.querySelector('div');
+    let i = 1;
+    function  show(){
+        var src = "../static/save_img/"+i+".jpg";
+        i += 1;
+        div.innerHTML = div.innerHTML + "<img src= "+ src + " onerror=\"javascript:this.style.display='none';\"/>";
+    }
+setInterval("show()",200);
+</script>
+</body>
+</html>

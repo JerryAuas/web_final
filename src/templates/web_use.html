@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>首页界面</title>
+    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/lib/layui-v2.6.3/css/layui.css">
+    <style>
+        #data {
+            margin: 20px 30px 30px 30px;
+            color: white;
+            height: 468px;
+            overflow: hidden;
+        }
+        #data .data_box {
+            margin: 0 auto;
+            margin-top: 15px;
+            background-color: rgba(32,87,120, 0.5);
+            font-size: 20px;
+            width: 100%;
+        }
+        .btn {
+            display: inline-block;
+            height: 38px;
+            line-height: 38px;
+            padding: 0 18px;
+            border: 1px solid transparent;
+            background-color: #009688;
+            color: #fff;
+            white-space: nowrap;
+            text-align: center;
+            font-size: 14px;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<!--内容部分-->
+<div class="con left">
+    <!--选择时间-->
+    <div class="select_time">
+        <div class="static_top left">
+            <i></i><span>交通状况：<span id="road"></span>&nbsp;&nbsp;|&nbsp;&nbsp;FPS：<span id="fps"></span></span>
+        </div>
+    </div>
+    <!--数据总概-->
+    <div class="con_div">
+        <div class="con_div_text left">
+            <div class="con_div_text01 left">
+                <img src="../static/img/info_6.png" class="left text01_img"/>
+                <div class="left text01_div">
+                    <p>页面总数</p>
+                    <p id="car_num"></p>
+                </div>
+            </div>
+        </div>
+        <div class="con_div_text left">
+            <div class="con_div_text01 left">
+                <img src="../static/img/info_4.png" class="left text01_img"/>
+                <div class="left text01_div">
+                    <p>行人数量</p>
+                    <p class="sky" id="people"></p>
+                </div>
+            </div>
+        </div>
+        <div class="con_div_text left">
+
+            <div class="con_div_text01 left">
+                <img src="../static/img/info_1.png" class="left text01_img"/>
+                <div class="left text01_div">
+                    <p>车辆数量</p>
+                    <p class="org" id="car"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--统计分析图-->
+    <div class="div_any">
+        <div class="div_any02 left ">
+            <div class="div_any_child div_height">
+                <div class="div_any_title any_title_width"><img src="../static/img/title_3.png">视频 </div>
+                <div id="video">
+                    <img src="{{ url_for('video_feed', feed_type='Camera_0') }}" style="width: 74%; margin-left: 160px;">
+                </div>
+            </div>
+        </div>
+        <div class="right div_any01">
+            <div class="div_any_child">
+                <div class="div_any_title"><img src="../static/img/title_4.png">来往车辆ID和类型统计 </div>
+                <div id="data"></div>
+                <div style="margin-left: 70px;">
+                    <button class="btn" id="analyse">流量分析</button>
+                    <a href="/photo_1.html" style="color: white" target="_blank"><button class="btn" style="margin-left: 20px;">通过取景</button></a>
+                    <a href="/photo_2.html" style="color: white" target="_blank"><button class="btn" style="margin-left: 20px;">事故取景</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../static/js/jquery/jQuery-2.2.0.min.js"></script>
+<script src="../static/js/base.js"></script>
+<script>
+    setInterval("load()",1000);
+</script>
+<script>
+    function load() {
+        $.ajax({
+            url: "./json_dict_style.json",
+            type: "GET",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                let fps = document.querySelector('#fps');
+                fps.innerText = data.FPS;
+            }
+        });
+        $.ajax({
+            url: "./json_dict.json",
+            type: "GET",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                let car_num = document.querySelector('#car_num');
+                let road = document.querySelector('#road');
+                car_num.innerText = data.len_list;
+                road.innerText = data.style;
+            }
+        });
+        $.ajax({
+            url: "./json_dict_sum.json",
+            type: "GET",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                let car = document.querySelector('#car');
+                let people = document.querySelector('#people');
+                car.innerText = data.Sum_vehicle;
+                people.innerText = data.Sum_person;
+            }
+        });
+        $.ajax({
+            url: "./json_dict_label.json",
+            type: "GET",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                let code = "";
+                for (var i = 0 ; i < data.length; i++){
+                    let info = "目标ID：" + data[i].id + "，目标类型：" + data[i].label;
+                    let div = '<div class="data_box">' + info + "</div>";
+                    code = div + code;
+                }
+                let ele_data = document.getElementById("data");
+                ele_data.innerHTML = code;
+            }
+        });
+    }
+</script>
+<script src="../static/lib/layui-v2.6.3/layui.js"></script>
+<script src="../static/js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+<script>
+    layui.use(['form'], function () {
+        var $ = layui.jquery;
+        let ele_analyse = document.getElementById("analyse");
+        ele_analyse.addEventListener('click', function () {
+            var index = layer.open({
+                title: '流量分析',
+                type: 2,
+                shade: 0.2,
+                maxmin:true,
+                shadeClose: true,
+                area: ['30%', '60%'],
+                content: './web-analyse.html',
+            });
+            $(window).on("resize", function () {
+                layer.full(index);
+            });
+        })
+    });
+</script>
+</body>
+</html>

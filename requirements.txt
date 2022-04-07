@@ -1,0 +1,24 @@
+# pip install -r requirements.txt
+coremltools==5.2.0
+easydict==1.9
+Flask==2.0.3
+ipdb==0.13.9
+matplotlib==3.5.1
+motmetrics==1.2.0
+numpy==1.21.5
+onnx==1.11.0
+opencv_python==4.5.5.62
+pafy==0.5.5
+pandas==1.4.1
+Pillow==9.0.1
+pykalman==0.9.5
+PyYAML==6.0
+requests==2.27.1
+scipy==1.8.0
+seaborn==0.11.2
+setuptools==58.0.4
+thop==0.0.31.post2005241907
+torch==1.10.2
+torchvision==0.11.3
+tqdm==4.62.3
+wandb==0.12.10

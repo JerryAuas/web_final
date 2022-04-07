@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>config</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../static/lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="../static/css/public.css" media="all">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-form layuimini-form">
+    <form action="/get_config" method="get">
+        <div class="layui-form-item">
+            <label class="layui-form-label">img_size</label>
+            <div class="layui-input-block">
+                <select name="img_size" id="img_size">
+                    <option value="480">480</option>
+                    <option value="640" selected>640</option>
+                    <option value="960">960</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">threshold</label>
+            <div class="layui-input-block">
+                <select name="threshold" id="threshold">
+                    <option value="0.15">0.15</option>
+                    <option value="0.25" selected>0.25</option>
+                    <option value="0.3">0.3</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">stride</label>
+            <div class="layui-input-block">
+                <select name="stride" id="stride">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">weight</label>
+            <div class="layui-input-block">
+                <input type="text" name="weight" id="weight" class="layui-input" readonly>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">device</label>
+            <div class="layui-input-block">
+                <select name="device" id="device">
+                    <option value="0" selected>0,1,2,3</option>
+                    <option value="cpu">cpu</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button id="btn" class="layui-btn layui-btn-normal" type="submit">确认提交</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="../static/lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script>
+    layui.use(['form'], function () {
+        var form = layui.form,
+            layer = layui.layer,
+            $ = layui.$;
+        let ele_weight = $("#weight");
+        // 获取配置
+        $.ajax({
+            url: "./detector_config.json",
+            type: "GET",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                ele_weight.val(data.weight);
+            }
+        });
+        $("#btn").click(function () {
+            $.ajax({
+                url: "/get_config",
+                type: "GET",
+                data: {
+                    img_size: $("#img_size").val(),
+                    threshold: $("#threshold").val(),
+                    stride: $("#stride").val(),
+                    weight: $("#weight").val(),
+                    device: $("#device").val()
+                },
+                dataType: "json",
+                success: function (data) {
+                    layer.msg(data.msg, function () {
+                        // parent.location.reload();
+                    });
+                }
+            })
+            return false;
+        })
+    });
+</script>
+</body>
+</html>

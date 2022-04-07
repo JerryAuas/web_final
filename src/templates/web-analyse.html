@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>config</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../static/lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="../static/css/public.css" media="all">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-form layuimini-form">
+    <div class="layui-row">
+        <div class="layui-col-xs6">
+            <div class="layui-form-item">
+                <label class="layui-form-label">上->左</label>
+                <div class="layui-input-block">
+                    <input type="text" class="layui-input N">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">上->右</label>
+                <div class="layui-input-block">
+                    <input type="text" class="layui-input N">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">上->下</label>
+                <div class="layui-input-block">
+                    <input type="text" class="layui-input N">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">左->右</label>
+                <div class="layui-input-block">
+                    <input type="text" class="layui-input N">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">左->上</label>
+                <div class="layui-input-block">
+                    <input type="text" class="layui-input N">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">左->下</label>
+                <div class="layui-input-block">
+                    <input type="text" class="layui-input N">
+                </div>
+            </div>
+        </div>
+    <div class="layui-col-xs6">
+        <div class="layui-form-item">
+                <label class="layui-form-label">右->上</label>
+                <div class="layui-input-block">
+                    <input type="text" class="layui-input N">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">右->左</label>
+                <div class="layui-input-block">
+                    <input type="text" class="layui-input N">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">右->下</label>
+                <div class="layui-input-block">
+                    <input type="text" class="layui-input N">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">下->左</label>
+                <div class="layui-input-block">
+                    <input type="text" class="layui-input N">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">下->上</label>
+                <div class="layui-input-block">
+                    <input type="text" class="layui-input N">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">下->右</label>
+                <div class="layui-input-block">
+                    <input type="text" class="layui-input N">
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+<script src="../static/lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script>
+function load() {
+    let $ = layui.$;
+    let u = document.querySelectorAll('.N');
+        $.ajax({
+            url: "./json_dict_style.json",
+            type: "GET",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                u[0].value = data.UP_LEFT;
+                u[1].value = data.UP_RIGHT;
+                u[2].value = data.UP_DOWN;
+                u[3].value = data.LEFT_RIGHT;
+                u[4].value = data.LEFT_UP;
+                u[5].value = data.LEFT_DOWN;
+                u[6].value = data.RIGHT_UP;
+                u[7].value = data.RIGHT_LEFT;
+                u[8].value = data.RIGHT_DOWN;
+                u[9].value = data.DOWN_LEFT;
+                u[10].value = data.DOWN_UP;
+                u[11].value = data.DOWN_RIGHT;
+            }
+        });
+}
+</script>
+<script>
+    layui.use(['form'], function () {
+        var form = layui.form,
+            layer = layui.layer;
+        load();
+        setInterval("load()",1000);
+    });
+</script>
+</body>
+</html>

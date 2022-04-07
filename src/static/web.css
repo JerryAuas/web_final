@@ -1,0 +1,18 @@
+body {
+    height: 1080px;
+}
+.canvas {
+    margin: 0 auto;
+}
+.canvas > img {
+    position: relative;
+    height: 648px;
+    width: 1152px;
+}
+.canvas > canvas {
+    position: absolute;
+    height: 648px;
+    width: 1152px;
+    left: 0;
+    top: 0;
+}

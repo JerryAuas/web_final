@@ -1,0 +1,1 @@
+{"img_size": 640, "threshold": 0.25, "stride": 1, "weight": "best.pt", "device": "0"}

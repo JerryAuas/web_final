@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>web</title>
+    <link rel="stylesheet" href="../static/css/public.css" media="all">
+    <link rel="stylesheet" href="../static/web.css" media="all">
+    <link rel="stylesheet" href="../static/lib/layui-v2.6.3/css/layui.css">
+    <script>
+        alert("提示：请在图中以四个点为单位去标记你将要监控到的路口，标记方向和标点均按顺时针（从左边开始，按左上右下标记）标记");
+    </script>
+    <style>
+        body {
+            background: url("../static/photo/bg.jpg")!important;
+            background-position: center center;
+        }
+        .layui-layer-title {
+            background-color: #081832d4 !important;
+            color: #FFFFff !important;
+            border-bottom: 3px solid #4b8df8 !important;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+        <div class="layui-main canvas" style="margin-top: 190px;">
+        <img src="../static/photo/1.jpg">
+        <canvas id="canvas"></canvas>
+    </div>
+        <div class="button" style="float: right; margin-right: 215px; margin-top: 25px;">
+            <form method="get" action="/web_get" class="position" style="display: inline-block">
+            <div style="display: none">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+                <input type="text" class="text" name="text">
+            </div>
+            <button type="submit" class="layui-btn layui-btn-normal">提交数据</button>
+        </form>
+            <button id="changeConfig" class="layui-btn layui-btn-danger">修改配置</button>
+            <button id="refresh" class="layui-btn" style="margin-left: 0">重修选取</button>
+        </div>
+
+    </div>
+</div>
+
+<script src="../static/lib/layui-v2.6.3/layui.js"></script>
+<script src="../static/js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+<script>
+    layui.use(['form'], function () {
+        var $ = layui.jquery;
+        // 画布
+        let ele_canvas = document.getElementById('canvas');
+        let ctx = ele_canvas.getContext('2d');
+        let count = 0;
+        let position = [];
+        let ele_texts = document.querySelectorAll('.text');
+        // 画布点击
+        ele_canvas.addEventListener('click', function(event){
+            if (count < 32) {
+                let rect = ele_canvas.getBoundingClientRect();
+                let x = parseInt((event.clientX - rect.left) * (ele_canvas.width / rect.width));
+                let y = parseInt((event.clientY - rect.top) * (ele_canvas.height / rect.height));
+                position[count] = x;
+                position[count+1] = y;
+                console.log(x, y);
+                ele_texts[count].value = x;
+                ele_texts[count+1].value = y;
+                count = count + 2;
+                // 生成圆
+                ctx.beginPath();
+                ctx.fillStyle= "red";
+                ctx.arc(x, y, 1, 0, 180);
+                ctx.fill();
+                // 圈图
+                if (count % 8 === 0){
+                    ctx.beginPath();
+                    ctx.moveTo(position[count - 8], position[count - 7]);
+                    ctx.lineTo(position[count - 6], position[count - 5]);
+                    ctx.lineTo(position[count - 4], position[count - 3]);
+                    ctx.lineTo(position[count - 2], position[count - 1]);
+                    ctx.fill();
+                }
+            }
+        })
+        let ele_change = document.getElementById("changeConfig");
+        ele_change.addEventListener('click', function () {
+            var index = layer.open({
+                title: '修改配置',
+                type: 2,
+                shade: 0.2,
+                maxmin:true,
+                shadeClose: true,
+                area: ['30%', '50%'],
+                content: './web_config.html',
+            });
+            $(window).on("resize", function () {
+                layer.full(index);
+            });
+        })
+        $("#refresh").click(function () {
+            location.reload();
+        });
+    });
+</script>
+</body>
+</html>

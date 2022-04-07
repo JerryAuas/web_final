@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../static/Webshou.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"
+            type="text/javascript">
+	</script>
+    <style>
+        #use:hover {
+            background: #44a8f2 !important;
+            color: white !important;
+        }
+        .h-title {
+            margin-top: -19px;
+            width: 100%;
+            height: 60px;
+            font-size: 24px;
+            text-align: center;
+            line-height: 40px;
+            background-image: url("../static/photo/title-bg.5e92861.png");
+            background-size: cover;
+            background-position: 50%;
+            font-family: PingFangSC-Semibold;
+            color: white;
+        }
+        .contents[data-v-f1] {
+            margin: 50px auto 120px;
+        }
+        ul[data-v-f1] {
+            margin: 0 67px;
+        }
+        li[data-v-f1] {
+            list-style: none;
+            float: left;
+            margin-right: 75px;
+            margin-bottom: 60px;
+            width: 260px;
+            text-align: center;
+            color: white;
+        }
+        .list_5 li {
+            float: left;
+            margin: 10px;
+        }
+        .content-box {
+            color: white;
+            width: 30%;
+            height: 400px;
+            float: left;
+            padding-left: 30px;
+            position: relative;
+        }
+        .content-box img {
+            width: 350px;
+            height: 230px;
+            opacity: 0.7;
+            position: absolute;
+        }
+        .content-box h3 {
+            position: absolute;
+            top: 110px;
+            left: 65px;
+            font-size: 25px;
+        }
+        .content-box .tab-bar-nav {
+            min-width: 75%;
+            height: 27px;
+            display: inline-block;
+            position: absolute;
+            padding-bottom: 8px;
+            white-space: nowrap;
+            border-bottom: 1px solid hsla(0,0%,100%,.75);
+            top: 165px;
+            left: 60px;
+        }
+        .content-box .text {
+            position: absolute;
+            width: 75%;
+            top: 255px;
+            left: 60px;
+            color: hsla(0,0%,100%,.65);
+        }
+        .content-box .bg {
+            background: rgb(12,19,37);
+            height: 100%;
+            width: 350px;
+        }
+    </style>
+</head>
+<body style="background-color: #21242E">
+    <div class="box">
+        <head>
+            <div class="head">
+                    <ul>
+                        <li>功能介绍</li>
+                        <li>应用场景</li>
+                        <li>功能展示</li>
+                    </ul>
+            </div>
+            <div class="img">
+                <div class="text_2">路路安——交通检测与安全预警系统</div>
+                <p class="text_2_1">根据视频抓拍图片序列，进行车辆和行人等流量的检测和追踪，识<br>别各类车辆（包括小汽车、卡车、巴士、摩托车、三轮车）在指定<br>区域内的驶入、驶出数量以及行人流量，实现动态流量追踪检测并<br>对目标进行行为预测来应用于道路交通场景，解决实际问题。</p>
+            </div>
+        </head>
+        <div class="middle">
+            <main>
+                <div class="function_introduced">
+                    <h2 class="h-title">功能介绍</h2>
+                    <div class="contents" data-v-f1="" style="height: 700px">
+                        <ul data-v-f1="">
+                            <li data-v-f1="">
+                                <img src="https://rm-static.djicdn.com/robomasters/public/img/harvest-logo-1.041b3cb.png" alt="接触前沿科技" data-v-774d2774="">
+                                <h3 data-v-774d2774="">车辆检测与追踪</h3>
+                                <p data-v-774d2774="">检测图像中的所有车辆，识别每辆车的类型和坐标位置，根据连续的视频图片序列，跟踪车辆轨迹。</p>
+                            </li>
+                            <li data-v-f1=""><img src="https://rm-static.djicdn.com/robomasters/public/img/harvest-logo-2.46b7b2d.png" alt="升级知识储备" data-v-774d2774="">
+                                <h3 data-v-774d2774="">动态车流量统计</h3>
+                                <p data-v-774d2774="">在原图中划分区域，根据车辆轨迹判断驶入/驶出区域的行为，统计各类车辆进出区域的数量。</p>
+                            </li>
+                            <li data-v-f1="">
+                                <img src="https://rm-static.djicdn.com/robomasters/public/img/harvest-logo-4.1d56a43.png" alt="提升综合素质" data-v-774d2774="">
+                                <h3 data-v-774d2774="">车辆行为预测</h3>
+                                <p data-v-774d2774="">联系各种因素，对车辆行为进行判断与预测行驶情况来及时发<br>现并干预不良的驾驶行为（如车辆偏道、车辆碰撞等)，避免可能造成的交通危害。</p>
+                            </li>
+                            <li data-v-f1="" style="margin-left: 185px;">
+                                <img src="https://rm-static.djicdn.com/robomasters/public/img/harvest-logo-3.55cd7f1.png" alt="丰厚的奖励" data-v-774d2774="">
+                                <h3 data-v-774d2774="">行人流量检测与追踪</h3>
+                                <p data-v-774d2774="">检测图像中的行人，识别行人的坐标为之，根据连续的视频图片序列，跟踪行人运动轨迹。</p>
+                            </li>
+                            <li data-v-f1="">
+                                <img src="https://rm-static.djicdn.com/robomasters/public/img/harvest-logo-5.59f1bd5.png" alt="提前接触理想院校" data-v-774d2774="">
+                                <h3 data-v-774d2774="">行人流量统计</h3>
+                                <p data-v-774d2774="">在原图中划分区域，根据行人运动情况，统计行人进出区域的数量。</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="application_scenarios" style="height: 500px;">
+                    <h2 class="h-title">应用场景</h2>
+                    <div class="content-box">
+                        <div class="bg">
+                            <div class="content-top">
+                                <img src="../static/photo/应用场景1.png" alt="">
+                                <h3>车辆路况分析</h3>
+                                <div class="tab-bar-nav"></div>
+                                <p class="text">
+                                    实时监控交通道路、卡口的车流量，自动统计不同时段各类车辆的进出数量，分析路口、路段的交通状况，为交通调度、路况优化提供精准参考依据。
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="content-box">
+                        <div class="bg">
+                            <div class="content-top">
+                                <img src="../static/photo/应用场景2.jpg" alt="">
+                                <h3>车辆规避事故</h3>
+                                <div class="tab-bar-nav"></div>
+                                <p class="text">
+                                    结合多种因素，对车辆行驶行为进行判断与预测行驶情况，及时发现并干预不良的驾驶行为，避免可能造成的交通危害。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-box">
+                        <div class="bg">
+                            <div class="content-top">
+                                <img src="../static/photo/应用场景3.jpg" alt="">
+                                <h3>行人流量分析</h3>
+                                <div class="tab-bar-nav"></div>
+                                <p class="text">
+                                    实时监控交通区域人数流量，统计不同时段的人数。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="function_display">
+                    <h2 class="h-title">功能展示</h2>
+                    <div class="video" style="border: 5px solid #404759;">
+                        <img src="../static/photo/function-show.jpg" alt="">
+                    </div>
+                    <div class="fd_display" style="color: white">
+                        判断视频中的各物体的类型，并对其进行分类统计，同时，统计各物体的行进方向并进行一定量的预判；当发生车辆碰撞时进行报警等功能。
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="use" style="width: 100%; text-align: center; height: 120px; background: white;line-height: 120px; color: #44a8f2; font-size: 30px; border-radius: 20px">点击使用</div>
+    <div>
+    <div class="mask"></div>
+        <div class="choose" style="background-color: #21242E; color: white">
+            <span class="title">请选择视频源</span>
+            <span class="text" style="text-align: center">请选择视频源，如果使用摄像头，请点击左侧按钮并保证摄像头处于开启状态，当框内变成0时表示摄像头选择成功，演示视频优先级低于摄像头。</span>
+            <form method="get" action="/web_get_file">
+                <input type="text" id="btn2" class="btn" name="btn" value="使用摄像头" readonly style="background-color: white">
+                <label for="file">
+                    <input type="button" id="btn1" value="演示文件" style="background-color: white"><span id="text1"></span>
+                </label>
+                <input type="submit" class="sub" value="确定" style="background-color: white">
+            </form>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="list_1">
+            <span>产品服务</span>
+            <ul>
+                <li><a>车道偏离预警 </a></li>
+                <li><a>交通信息 </a></li>
+                <li><a>汽车防撞预警</a></li>
+            </ul>
+        </div>
+        <div class="list_2">
+            <span>关于AI</span>
+            <ul>
+                <li><a>研究价值</a></li>
+                <li><a>发展阶段</a></li>
+                <li><a>主要成果</a></li>
+            </ul>
+        </div>
+        <div class="list_3">
+            <span>新手上路</span>
+            <ul>
+                <li><a>使用说明</a></li>
+            </ul>
+        </div>
+        <div class="list_4">
+            <span>常见问题</span>
+            <ul>
+                <li><a>技术问答</a></li>
+                <li><a>商业咨询</a></li>
+            </ul>
+        </div>
+        <div class="list_5">
+            <span>社交媒体</span>
+            <ul>
+                <li>
+                    <a href="#">
+                        <svg t="1649036199599" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2329" width="40" height="40"><path d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32z m-32 736H663.9V602.2h104l15.6-120.7H663.9v-77.1c0-35 9.7-58.8 59.8-58.8h63.9v-108c-11.1-1.5-49-4.8-93.2-4.8-92.2 0-155.3 56.3-155.3 159.6v89H434.9v120.7h104.3V848H176V176h672v672z" p-id="2330" fill="#ffffff"></path></svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg t="1649036421602" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3150" width="40" height="40"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64z m215.3 337.7c0.3 4.7 0.3 9.6 0.3 14.4 0 146.8-111.8 315.9-316.1 315.9-63 0-121.4-18.3-170.6-49.8 9 1 17.6 1.4 26.8 1.4 52 0 99.8-17.6 137.9-47.4-48.8-1-89.8-33-103.8-77 17.1 2.5 32.5 2.5 50.1-2-50.8-10.3-88.9-55-88.9-109v-1.4c14.7 8.3 32 13.4 50.1 14.1-30.9-20.6-49.5-55.3-49.5-92.4 0-20.7 5.4-39.6 15.1-56 54.7 67.4 136.9 111.4 229 116.1C492 353.1 548.4 292 616.2 292c32 0 60.8 13.4 81.1 35 25.1-4.7 49.1-14.1 70.5-26.7-8.3 25.7-25.7 47.4-48.8 61.1 22.4-2.4 44-8.6 64-17.3-15.1 22.2-34 41.9-55.7 57.6z" p-id="3151" fill="#ffffff"></path></svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg t="1649036527033" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3989" width="40" height="40"><path d="M457.3 543c-68.1-17.7-145 16.2-174.6 76.2-30.1 61.2-1 129.1 67.8 151.3 71.2 23 155.2-12.2 184.4-78.3 28.7-64.6-7.2-131-77.6-149.2z m-52 156.2c-13.8 22.1-43.5 31.7-65.8 21.6-22-10-28.5-35.7-14.6-57.2 13.7-21.4 42.3-31 64.4-21.7 22.4 9.5 29.6 35 16 57.3z m45.5-58.5c-5 8.6-16.1 12.7-24.7 9.1-8.5-3.5-11.2-13.1-6.4-21.5 5-8.4 15.6-12.4 24.1-9.1 8.7 3.2 11.8 12.9 7 21.5zM785.3 443.5c15 4.8 31-3.4 35.9-18.3 11.8-36.6 4.4-78.4-23.2-109-27.6-30.6-68.4-42.3-106-34.3-15.4 3.3-25.2 18.4-21.9 33.8 3.3 15.3 18.4 25.2 33.8 21.8 18.4-3.9 38.3 1.8 51.9 16.7 13.5 15 17.2 35.4 11.3 53.3-4.9 15.1 3.2 31.1 18.2 36z" p-id="3990" fill="#ffffff"></path><path d="M885.1 237.5c-56.7-62.9-140.4-86.9-217.7-70.5-17.9 3.8-29.3 21.4-25.4 39.3 3.8 17.9 21.4 29.3 39.3 25.5 55-11.7 114.4 5.4 154.8 50.1 40.3 44.7 51.2 105.7 34 159.1-5.6 17.4 3.9 36 21.3 41.7 17.4 5.6 36-3.9 41.6-21.2v-0.1c24.1-75.4 8.9-161.1-47.9-223.9zM729 499c-12.2-3.6-20.5-6.1-14.1-22.1 13.8-34.7 15.2-64.7 0.3-86-28-40.1-104.8-37.9-192.8-1.1 0 0-27.6 12.1-20.6-9.8 13.5-43.5 11.5-79.9-9.6-101-47.7-47.8-174.6 1.8-283.5 110.6C127.3 471.1 80 557.5 80 632.2 80 775.1 263.2 862 442.5 862c235 0 391.3-136.5 391.3-245 0-65.5-55.2-102.6-104.8-118zM443 810.8c-143 14.1-266.5-50.5-275.8-144.5-9.3-93.9 99.2-181.5 242.2-195.6 143-14.2 266.5 50.5 275.8 144.4C694.4 709 586 796.6 443 810.8z" p-id="3991" fill="#ffffff"></path></svg>
+                    </a>
+                </li>
+                <li id="code">
+                    <a href="javascript:void(0);">
+                        <svg t="1649036571711" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5194" width="40" height="40"><path d="M690.1 377.4c5.9 0 11.8 0.2 17.6 0.5-24.4-128.7-158.3-227.1-319.9-227.1C209 150.8 64 271.4 64 420.2c0 81.1 43.6 154.2 111.9 203.6 5.5 3.9 9.1 10.3 9.1 17.6 0 2.4-0.5 4.6-1.1 6.9-5.5 20.3-14.2 52.8-14.6 54.3-0.7 2.6-1.7 5.2-1.7 7.9 0 5.9 4.8 10.8 10.8 10.8 2.3 0 4.2-0.9 6.2-2l70.9-40.9c5.3-3.1 11-5 17.2-5 3.2 0 6.4 0.5 9.5 1.4 33.1 9.5 68.8 14.8 105.7 14.8 6 0 11.9-0.1 17.8-0.4-7.1-21-10.9-43.1-10.9-66 0-135.8 132.2-245.8 295.3-245.8z m-194.3-86.5c23.8 0 43.2 19.3 43.2 43.1s-19.3 43.1-43.2 43.1c-23.8 0-43.2-19.3-43.2-43.1s19.4-43.1 43.2-43.1z m-215.9 86.2c-23.8 0-43.2-19.3-43.2-43.1s19.3-43.1 43.2-43.1 43.2 19.3 43.2 43.1-19.4 43.1-43.2 43.1z" p-id="5195" fill="#ffffff"></path><path d="M866.7 792.7c56.9-41.2 93.2-102 93.2-169.7 0-124-120.8-224.5-269.9-224.5-149 0-269.9 100.5-269.9 224.5S540.9 847.5 690 847.5c30.8 0 60.6-4.4 88.1-12.3 2.6-0.8 5.2-1.2 7.9-1.2 5.2 0 9.9 1.6 14.3 4.1l59.1 34c1.7 1 3.3 1.7 5.2 1.7 2.4 0 4.7-0.9 6.4-2.6 1.7-1.7 2.6-4 2.6-6.4 0-2.2-0.9-4.4-1.4-6.6-0.3-1.2-7.6-28.3-12.2-45.3-0.5-1.9-0.9-3.8-0.9-5.7 0.1-5.9 3.1-11.2 7.6-14.5zM600.2 587.2c-19.9 0-36-16.1-36-35.9 0-19.8 16.1-35.9 36-35.9s36 16.1 36 35.9c0 19.8-16.2 35.9-36 35.9z m179.9 0c-19.9 0-36-16.1-36-35.9 0-19.8 16.1-35.9 36-35.9s36 16.1 36 35.9c-0.1 19.8-16.2 35.9-36 35.9z" p-id="5196" fill="#ffffff"></path></svg>
+                    </a>
+                </li>
+                <li>
+                    <img id="img-code" src="../static/photo/二维码.jpg" style="width: 200px; display: none">
+                </li>
+            </ul>
+        </div>
+    </div>
+<script>
+    $("#code").click(function () {
+        $("#img-code").show();
+    })
+    btn_1 = document.querySelector('#btn1');
+    btn_1.addEventListener('click', function () {
+        btn_1.style.backgroundColor = "#44a8f2";
+    })
+</script>
+<script>
+    file_name = document.querySelector('.file_name');
+    text1 = document.querySelector('#text1');
+    box = document.querySelector('.box');
+    mask = document.querySelector('.mask');
+    choose = document.querySelector('.choose');
+    mask.addEventListener('click',function (){
+        choose.style.display = 'none';
+        box.style.display = 'block';
+        mask.style.display = 'none';
+    })
+    camera = document.querySelector('.btn');
+    camera.addEventListener('click',function () {
+        camera.value = '0';
+        btn_2.style.backgroundColor = "#44a8f2";
+    })
+    ele_use = document.querySelector("#use");
+    ele_use.addEventListener('click', function () {
+        choose.style.display = 'block';
+        mask.style.display = 'block';
+    })
+</script>
+</body>
+</html>

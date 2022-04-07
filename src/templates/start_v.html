@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <video  id="MyVideo" src="../static/photo/video.mp4"
+            autoplay muted  style="width:100%;display:block;margin:0px auto;height:auto; overflow: hidden">
+
+    </video>
+    <script>
+            myVid=document.getElementById("MyVideo");
+            myVid.addEventListener('ended',function(){undefined
+                window.location.href="Web-shou.html";
+            });
+    </script>
+</body>
+</html>
